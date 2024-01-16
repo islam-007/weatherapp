@@ -15,7 +15,7 @@ getWeather()
 const cityName = document.getElementById("cityName")
 const temp = document.getElementById("temp")
 const weatherStatus = document.getElementById("weatherStatus")
-const wind = document.getElementById("wind")
+const winD = document.getElementById("wind")
 const  humidity= document.getElementById("humidity")
 const  textField= document.getElementById("textField")
 const  btnShow= document.getElementById("btnShow")
@@ -24,7 +24,8 @@ btnShow.addEventListener('click',() => {
     getWeather(textField.value)
 })
 function showWeather (city) {
-    const {name, sys, main} = city
-    cityName.innerHTML =`${city.name} <span>${city.sys.country}</span>`
+    const {name, sys, main,wind} = city
+    cityName.innerHTML =`${name} <span>${city.sys.country}</span>`
     temp.innerHTML = `${(city.main.temp - 273.15).toFixed()}`
+    winD.innerHTML =`Ветер: ${wind.speed} <span>km/h</span>`
 }
